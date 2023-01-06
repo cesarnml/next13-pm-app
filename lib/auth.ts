@@ -1,6 +1,4 @@
-// app.js
 import bcrypt from 'bcrypt'
-import { fchown } from 'fs'
 
 const saltRounds = 10
 
@@ -19,3 +17,7 @@ async function main() {
     return console.error(error)
   }
 }
+
+main()
+
+// ref: https://auth0.com/blog/hashing-in-action-understanding-bcrypt/

@@ -1,6 +1,7 @@
 import { hashPassword } from '@lib/auth'
 import { prisma } from '@lib/db'
 import { TASK_STATUS } from '@prisma/client'
+import { faker } from '@faker-js/faker/locale/en_US'
 
 const getRandomTaskStatus = () => {
   const statuses = [TASK_STATUS.COMPLETED, TASK_STATUS.NOT_STARTED, TASK_STATUS.STARTED]
@@ -8,18 +9,22 @@ const getRandomTaskStatus = () => {
 }
 
 async function main() {
+  const firstName = faker.name.firstName()
+  const lastName = faker.name.lastName()
+  const email = faker.helpers.unique(faker.internet.email, [firstName, lastName])
+
   const user = await prisma.user.upsert({
-    where: { email: 'user@email.com' },
+    where: { email },
     update: {},
     create: {
-      email: 'user@email.com',
-      firstName: 'User',
-      lastName: 'Person',
+      email: email,
+      firstName: firstName,
+      lastName: lastName,
       password: await hashPassword(process.env.HASH_SECRET),
       projects: {
-        create: new Array(5).fill(1).map((_, i) => ({
-          name: `Project ${i}`,
-          due: new Date(2022, 11, 25),
+        create: new Array(Math.floor(Math.random() * 10)).fill(null).map((_, i) => ({
+          name: faker.vehicle.model(),
+          due: faker.datatype.datetime(),
         })),
       },
     },

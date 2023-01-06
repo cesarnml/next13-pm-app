@@ -2,11 +2,9 @@ import bcrypt from 'bcrypt'
 
 const saltRounds = process.env.SALT_ROUNDS
 
-const hashSecret = process.env.HASH_SECRET
-
-export async function hashPassword() {
+export async function hashPassword(secret: string) {
   const salt = await bcrypt.genSalt(saltRounds)
-  return await bcrypt.hash(hashSecret, salt)
+  return await bcrypt.hash(secret, salt)
 }
 
 // ref: https://auth0.com/blog/hashing-in-action-understanding-bcrypt/

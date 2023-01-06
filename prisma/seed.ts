@@ -1,4 +1,4 @@
-// import { hashPassword } from '@lib/auth'
+import { hashPassword } from '@lib/auth'
 import { prisma } from '@lib/db'
 import { TASK_STATUS } from '@prisma/client'
 
@@ -15,7 +15,7 @@ async function main() {
       email: 'user@email.com',
       firstName: 'User',
       lastName: 'Person',
-      password: await hashPassword('password'),
+      password: await hashPassword(process.env.HASH_PASSWORD),
       projects: {
         create: new Array(5).fill(1).map((_, i) => ({
           name: `Project ${i}`,

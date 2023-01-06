@@ -1,5 +1,5 @@
-import { hashPassword } from '@lib/auth'
-import { db } from '@lib/db'
+// import { hashPassword } from '@lib/auth'
+import { prisma } from '@lib/db'
 import { TASK_STATUS } from '@prisma/client'
 
 const getRandomTaskStatus = () => {
@@ -8,7 +8,7 @@ const getRandomTaskStatus = () => {
 }
 
 async function main() {
-  const user = await db.user.upsert({
+  const user = await prisma.user.upsert({
     where: { email: 'user@email.com' },
     update: {},
     create: {
@@ -30,7 +30,7 @@ async function main() {
 
   const tasks = await Promise.all(
     user.projects.map((project) =>
-      db.task.createMany({
+      prisma.task.createMany({
         data: new Array(10).fill(1).map((_, i) => {
           return {
             name: `Task ${i}`,
@@ -48,10 +48,10 @@ async function main() {
 }
 main()
   .then(async () => {
-    await db.$disconnect()
+    await prisma.$disconnect()
   })
   .catch(async (e) => {
     console.error(e)
-    await db.$disconnect()
+    await prisma.$disconnect()
     process.exit(1)
   })

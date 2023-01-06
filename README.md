@@ -7,7 +7,7 @@
 
 ## Lessons
 
-- [ ] Lesson 01
+- [x] ~~_Lesson 01: Project Scaffold_~~ [2023-01-06]
 - [ ] Lesson 02
 - [ ] Lesson 03
 - [ ] Lesson 04
@@ -22,3 +22,5 @@
 ### Lesson 01 Notes - Project Scaffolding
 
 - `npx prisma format` will auto generate required related fields in `schema.prisma`
+- `npx prisma migrate dev` syncs prisma client module with current `schema.prisma`
+  - Required after making any change to `schema.prisma`

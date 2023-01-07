@@ -3,9 +3,15 @@ import { prisma } from '@lib/db'
 import { TASK_STATUS } from '@prisma/client'
 import { faker } from '@faker-js/faker/locale/en_US'
 
+const minUsers = 10
+const maxUsers = 20
+const minProjects = 0
+const maxProjects = 50
+const minTasks = 0
+const maxTasks = 50
+
 const getRandomTaskStatus = () => {
-  const statuses = [TASK_STATUS.COMPLETED, TASK_STATUS.NOT_STARTED, TASK_STATUS.STARTED]
-  return statuses[Math.floor(Math.random() * statuses.length)]
+  return faker.helpers.arrayElement([TASK_STATUS.COMPLETED, TASK_STATUS.NOT_STARTED, TASK_STATUS.STARTED])
 }
 
 async function main() {
@@ -22,7 +28,7 @@ async function main() {
       lastName: lastName,
       password: await hashPassword(process.env.HASH_SECRET),
       projects: {
-        create: new Array(Math.floor(Math.random() * 10)).fill(null).map((_, i) => ({
+        create: new Array(faker.datatype.number({ min: minProjects, max: maxProjects })).fill(null).map((_) => ({
           name: faker.vehicle.model(),
           due: faker.datatype.datetime(),
         })),
@@ -36,9 +42,9 @@ async function main() {
   const tasks = await Promise.all(
     user.projects.map((project) =>
       prisma.task.createMany({
-        data: new Array(10).fill(1).map((_, i) => {
+        data: new Array(faker.datatype.number({ min: minTasks, max: maxTasks })).fill(null).map((_, i) => {
           return {
-            name: faker.hacker.phrase(),
+            name: `${faker.hacker.phrase()} ${faker.datatype.uuid()}`,
             ownerId: user.id,
             projectId: project.id,
             description: faker.finance.transactionDescription(),

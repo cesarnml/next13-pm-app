@@ -38,10 +38,10 @@ async function main() {
       prisma.task.createMany({
         data: new Array(10).fill(1).map((_, i) => {
           return {
-            name: `Task ${i}`,
+            name: faker.hacker.phrase(),
             ownerId: user.id,
             projectId: project.id,
-            description: `Everything that describes Task ${i}`,
+            description: faker.finance.transactionDescription(),
             status: getRandomTaskStatus(),
           }
         }),

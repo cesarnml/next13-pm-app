@@ -1,4 +1,4 @@
-import { MethodType, UrlType } from './typings'
+import { MethodType, RegisterFields, SignInFields, UrlType } from './typings'
 import { User } from '@prisma/client'
 import { Method, Url } from '@lib/constants'
 
@@ -26,7 +26,7 @@ const fetcher = async ({ url, method, body, json = true }: Params) => {
   return json ? await res.json() : res
 }
 
-export const register = async (user: Partial<User>) => {
+export const register = async (user: Pick<User, RegisterFields>) => {
   return fetcher({
     url: Url.Register,
     method: Method.POST,
@@ -35,7 +35,7 @@ export const register = async (user: Partial<User>) => {
   })
 }
 
-export const signin = async (user: Partial<User>) => {
+export const signin = async (user: Pick<User, SignInFields>) => {
   return fetcher({
     url: Url.Register,
     method: Method.POST,

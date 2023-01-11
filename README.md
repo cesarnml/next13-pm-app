@@ -8,7 +8,7 @@
 ## Lessons
 
 - [x] ~~_Lesson 01: Project Scaffold_~~ [2023-01-06]
-- [ ] Lesson 02
+- [x] ~~_Lesson 02 - Scaffold path aliases, app dir page grouping/routes and GlassPane component/layout_~~ [2023-01-11]
 - [ ] Lesson 03
 - [ ] Lesson 04
 - [ ] Lesson 05

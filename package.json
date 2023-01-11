@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "prisma": {
-    "seed": "ts-node -P tsconfig-seed.json -r tsconfig-paths/register --transpileOnly prisma/seed.ts"
+    "seed": "ts-node -P tsconfig-seed.json -r tsconfig-paths/register prisma/seed.ts"
   },
   "dependencies": {
     "@next/font": "13.1.1",

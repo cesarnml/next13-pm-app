@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 
 /**
- * Prisma client - loaded from cache if defined
+ * Prisma client - load from cache if defined
  */
 export const prisma =
   global.prisma ??

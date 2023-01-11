@@ -3,8 +3,6 @@ import { prisma } from '@lib/db'
 import { TASK_STATUS } from '@prisma/client'
 import { faker } from '@faker-js/faker/locale/en_US'
 
-const minUsers = 10
-const maxUsers = 20
 const minProjects = 0
 const maxProjects = 50
 const minTasks = 0

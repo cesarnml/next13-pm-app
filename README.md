@@ -16,7 +16,7 @@
 - [x] ~~_Lesson 04 - Setup api fetcher, reusable AuthForm, typings around routes and api endpoints_~~ [2023-01-11]
 - [x] ~~_Lesson 05 - Incorporate AuthForm in register and signin pages_~~ [2023-01-11]
 - [x] ~~_Lesson 06 - Add several auth helpers (jwt.sign, jwt.verify, etc), declare register and signin api routes_~~ [2023-01-11]
-- [ ] Lesson 07
+- [x] ~~_Lesson 07 - Scaffold home page, setup Async Server Component (Greeting) and wire up Suspense to provide loading state for it_~~ [2023-01-12]
 - [ ] Lesson 08
 - [ ] Lesson 09
 

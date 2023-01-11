@@ -33,8 +33,11 @@ export const Route = {
   Api: '/api',
   Root: '/',
   Home: '/home',
+  Calendar: '/calendar',
   Logout: '/logout',
   Register: '/register',
+  Profile: '/profile',
+  Settings: '/settings',
   SignIn: '/signin',
   Static: '/static',
 } as const

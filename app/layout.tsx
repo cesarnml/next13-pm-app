@@ -1,4 +1,5 @@
 import GlassPane from '@components/GlassPane'
+import Sidebar from '@components/Sidebar'
 import { Inter } from '@next/font/google'
 import '@styles/globals.css'
 
@@ -18,8 +19,11 @@ export default function RootLayout({ children }: Props) {
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className='w-screen h-screen p-6 rainbow-mesh'>
-        <GlassPane className='flex items-center justify-center w-full h-full'>{children}</GlassPane>
+      <body className='w-screen h-screen p-6 candy-mesh'>
+        <GlassPane className='flex items-center justify-center w-full h-full'>
+          <Sidebar />
+          {children}
+        </GlassPane>
       </body>
     </html>
   )

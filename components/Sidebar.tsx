@@ -1,4 +1,4 @@
-import logo from '@/assets/images/logo.png'
+import logo from '@assets/images/logo.svg'
 import { links } from '@lib/constants'
 import Image from 'next/image'
 import Card from './Card'

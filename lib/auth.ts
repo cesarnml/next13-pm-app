@@ -1,3 +1,4 @@
+import { RequestCookie } from 'next/dist/server/web/spec-extension/cookies'
 import { User } from '@prisma/client'
 import bcrypt from 'bcrypt'
 import { SignJWT, jwtVerify } from 'jose'

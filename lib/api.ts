@@ -1,8 +1,10 @@
+import { MethodType, UrlType } from './typings'
 import { User } from '@prisma/client'
+import { Method, Url } from '@lib/constants'
 
 type Params<T = {}> = {
-  url: string
-  method: 'GET' | 'POST' | 'PUT' | 'PATCH'
+  url: UrlType
+  method: MethodType
   body: T
   json: boolean
 }
@@ -21,16 +23,13 @@ const fetcher = async ({ url, method, body, json = true }: Params) => {
     throw new Error('API Error')
   }
 
-  if (json) {
-    const data = await res.json()
-    return data
-  }
+  return json ? await res.json() : res
 }
 
 export const register = async (user: Partial<User>) => {
   return fetcher({
-    url: '/api/register',
-    method: 'POST',
+    url: Url.Register,
+    method: Method.POST,
     body: user,
     json: false,
   })
@@ -38,8 +37,8 @@ export const register = async (user: Partial<User>) => {
 
 export const signin = async (user: Partial<User>) => {
   return fetcher({
-    url: '/api/signin',
-    method: 'POST',
+    url: Url.Register,
+    method: Method.POST,
     body: user,
     json: false,
   })

@@ -14,3 +14,16 @@ export const links: Links = [
     href: '/settings',
   },
 ]
+
+export const Method = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  PATCH: 'PATCH',
+} as const
+
+export const Url = {
+  Register: '/api/register',
+  Signin: '/api/signin',
+  Logout: '/api/logout',
+} as const

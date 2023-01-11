@@ -1,7 +1,7 @@
 export type LinkType = {
   label: string
   icon: string
-  link: string
+  href: string
 }
 
 export type Links = LinkType[]

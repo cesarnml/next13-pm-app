@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Calendar, Grid, Settings, User } from 'react-feather'
 
-const icons = { Settings, User, Grid, Calendar }
+const iconMap = { Settings, User, Grid, Calendar }
 
 type Props = {
   link: LinkType
@@ -13,15 +13,13 @@ type Props = {
 
 const SidebarLink = ({ link }: Props) => {
   const pathname = usePathname()
-  let isActive = false
 
-  if (pathname === link.link) {
-    isActive = true
-  }
+  const isActive = pathname === link.href
 
-  const Icon = icons[link.icon as keyof typeof icons]
+  const Icon = iconMap[link.icon as keyof typeof iconMap]
+
   return (
-    <Link href={link.link} className='flex items-center justify-center w-full'>
+    <Link href={link.href} className='flex items-center justify-center w-full'>
       <Icon
         size={40}
         className={clsx(

@@ -59,7 +59,7 @@ export default function AuthForm({ mode }: Props) {
 
   const handleFieldChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
-    setFormState((s) => ({ ...s, [name]: value }))
+    setFormState((prev) => ({ ...prev, [name]: value }))
   }, [])
 
   const content = mode === 'register' ? registerContent : signinContent

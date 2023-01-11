@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import { PropsWithChildren } from 'react'
 
 type Props = {
   children: React.ReactNode

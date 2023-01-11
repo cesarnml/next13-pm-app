@@ -17,23 +17,27 @@ export async function comparePasswords(plainTextPassword: string, hashedPassword
 
 // ref: https://auth0.com/blog/hashing-in-action-understanding-bcrypt/
 
-export const createJWT = (user: User) => {
+export const createJWT = ({ id, email }: User) => {
   // return jwt.sign({ id: user.id }, 'cookies')
+  const alg = 'HS256'
+  const typ = 'JWT'
   const iat = Math.floor(Date.now() / 1000)
   const exp = iat + 60 * 60 * 24 * 7
-
-  return new SignJWT({ payload: { id: user.id, email: user.email } })
-    .setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
+  const secret = new TextEncoder().encode(process.env.JWT_SECRET)
+  const payload = { id, email }
+  return new SignJWT(payload)
+    .setProtectedHeader({ alg, typ })
     .setExpirationTime(exp)
     .setIssuedAt(iat)
     .setNotBefore(iat)
-    .sign(new TextEncoder().encode(process.env.JWT_SECRET))
+    .sign(secret)
 }
 // Validate a JWT:
 export const validateJWT = async (jwt: string) => {
-  const { payload } = await jwtVerify(jwt, new TextEncoder().encode(process.env.JWT_SECRET))
+  const secret = new TextEncoder().encode(process.env.JWT_SECRET)
+  const { payload } = await jwtVerify(jwt, secret)
 
-  return payload.payload as any
+  return payload as { id: string; email: string }
 }
 
 // Getting the JWT from cookies:

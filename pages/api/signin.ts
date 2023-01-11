@@ -30,7 +30,7 @@ export default async function signin(req: NextApiRequest, res: NextApiResponse) 
           maxAge,
         }),
       )
-      res.status(201).end()
+      res.status(200).end()
     } else {
       return res.status(401).json({ error: 'Invalid login' })
     }

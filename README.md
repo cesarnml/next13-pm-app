@@ -4,6 +4,7 @@
   - [Lessons](#lessons)
   - [Notes](#notes)
     - [Lesson 01 Notes - Project Scaffolding](#lesson-01-notes---project-scaffolding)
+    - [Lesson 02 Notes](#lesson-02-notes)
 
 ## Lessons
 
@@ -24,3 +25,7 @@
 - `npx prisma format` will auto generate required related fields in `schema.prisma`
 - `npx prisma migrate dev` syncs prisma client module with current `schema.prisma`
   - Required after making any change to `schema.prisma`
+
+### Lesson 02 Notes
+
+- `GlassPane` component will likely be refactored to be part of the `RootLayout` component declaration

@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react'
 
 type Props = {
   children: React.ReactNode
-  className: string
+  className?: string
 }
 
 const GlassPane = ({ children, className }: Props) => {

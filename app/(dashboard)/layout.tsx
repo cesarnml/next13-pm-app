@@ -2,7 +2,11 @@ type Props = {
   children: React.ReactNode
 }
 
-const ProjectLayout = ({ children }: Props) => {
-  return <div>{children}</div>
+const DashboardRootLayout = ({ children }: Props) => {
+  return (
+    <>
+      <main className='w-full pl-6 h-full'>{children}</main>
+    </>
+  )
 }
-export default ProjectLayout
+export default DashboardRootLayout

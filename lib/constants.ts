@@ -29,6 +29,7 @@ export const Url = {
 } as const
 
 export const Route = {
+  Root: '/',
   Home: '/home',
   Register: '/register',
   SignIn: '/signin',

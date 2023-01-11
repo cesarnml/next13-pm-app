@@ -37,7 +37,7 @@ export const register = async (user: Pick<User, RegisterFields>) => {
 
 export const signin = async (user: Pick<User, SignInFields>) => {
   return fetcher({
-    url: Url.Register,
+    url: Url.SignIn,
     method: Method.POST,
     body: user,
     json: false,

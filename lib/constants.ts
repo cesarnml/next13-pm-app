@@ -24,6 +24,13 @@ export const Method = {
 
 export const Url = {
   Register: '/api/register',
-  Signin: '/api/signin',
+  SignIn: '/api/signin',
   Logout: '/api/logout',
+} as const
+
+export const Route = {
+  Home: '/home',
+  Register: '/register',
+  SignIn: '/signin',
+  Logout: '/logout',
 } as const

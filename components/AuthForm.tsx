@@ -6,9 +6,10 @@ import { useRouter } from 'next/navigation'
 import Card from './Card'
 import Button from './Button'
 import Input from './Input'
+import { Route } from '@lib/constants'
 
 const registerContent = {
-  linkUrl: '/signin',
+  linkUrl: Route.SignIn,
   linkText: 'Already have an account?',
   header: 'Create a new Account',
   subheader: 'Just a few things to get started',
@@ -16,7 +17,7 @@ const registerContent = {
 }
 
 const signinContent = {
-  linkUrl: '/register',
+  linkUrl: Route.Register,
   linkText: "Don't have an account?",
   header: 'Welcome Back',
   subheader: 'Enter your credentials to access your account',
@@ -25,8 +26,12 @@ const signinContent = {
 
 const initial = { email: '', password: '', firstName: '', lastName: '' }
 
-export default function AuthForm({ mode }: { mode: 'register' | 'signin' }) {
-  const [formState, setFormState] = useState({ ...initial })
+type Props = {
+  mode: 'register' | 'signin'
+}
+
+export default function AuthForm({ mode }: Props) {
+  const [formState, setFormState] = useState(initial)
   const [error, setError] = useState('')
 
   const router = useRouter()
@@ -40,12 +45,11 @@ export default function AuthForm({ mode }: { mode: 'register' | 'signin' }) {
         } else {
           await signin(formState)
         }
-
-        router.replace('/home')
+        router.replace(Route.Home)
       } catch (e) {
         setError(`Could not ${mode}`)
       } finally {
-        setFormState({ ...initial })
+        setFormState(initial)
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

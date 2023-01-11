@@ -1,8 +1,9 @@
 import clsx from 'clsx'
+import { HTMLInputTypeAttribute } from 'react'
 
 type Props = {
   className?: string
-}
+} & React.InputHTMLAttributes<HTMLInputElement>
 
 const Input = ({ className, ...props }: Props) => {
   return (

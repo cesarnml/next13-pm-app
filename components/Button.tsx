@@ -31,7 +31,7 @@ const buttonClasses = cva(
   },
 )
 
-export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonClasses>
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonClasses>
 
 const Button = ({ children, className, intent, size, ...props }: ButtonProps) => {
   return (

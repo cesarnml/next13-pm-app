@@ -14,9 +14,9 @@ const verifyJWT = async (jwt: string) => {
 export default async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
   if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/api') ||
-    pathname.startsWith('/static') ||
+    pathname.startsWith(Route._Next) ||
+    pathname.startsWith(Route.Api) ||
+    pathname.startsWith(Route.Static) ||
     pathname.startsWith(Route.SignIn) ||
     pathname.startsWith(Route.Register) ||
     PUBLIC_FILE.test(pathname)

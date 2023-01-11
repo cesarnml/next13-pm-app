@@ -29,9 +29,12 @@ export const Url = {
 } as const
 
 export const Route = {
+  _Next: '/_next',
+  Api: '/api',
   Root: '/',
   Home: '/home',
+  Logout: '/logout',
   Register: '/register',
   SignIn: '/signin',
-  Logout: '/logout',
+  Static: '/static',
 } as const

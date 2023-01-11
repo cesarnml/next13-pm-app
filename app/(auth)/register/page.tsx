@@ -1,4 +1,11 @@
+import AuthForm from '@components/AuthForm'
+import { Fragment } from 'react'
+
 const Register = () => {
-  return <div>Register</div>
+  return (
+    <Fragment>
+      <AuthForm mode='register' />
+    </Fragment>
+  )
 }
 export default Register

@@ -1,4 +1,11 @@
+import AuthForm from '@components/AuthForm'
+import { Fragment } from 'react'
+
 const SignIn = () => {
-  return <div>SignIn</div>
+  return (
+    <Fragment>
+      <AuthForm mode='signin' />
+    </Fragment>
+  )
 }
 export default SignIn

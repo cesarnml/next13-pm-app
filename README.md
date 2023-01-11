@@ -14,7 +14,7 @@
 - [x] ~~_Lesson 02 - Scaffold path aliases, app dir page grouping/routes and GlassPane component/layout_~~ [2023-01-11]
 - [x] ~~_Lesson 03 - Declare reusable components (`Button, Input, Card, Sidebar, SidebarLink`)_~~ [2023-01-11]
 - [x] ~~_Lesson 04 - Setup api fetcher, reusable AuthForm, typings around routes and api endpoints_~~ [2023-01-11]
-- [ ] Lesson 05
+- [x] ~~_Lesson 05 - Incorporate AuthForm in register and signin pages_~~ [2023-01-11]
 - [ ] Lesson 06
 - [ ] Lesson 07
 - [ ] Lesson 08

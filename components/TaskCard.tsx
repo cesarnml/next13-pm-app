@@ -1,3 +1,4 @@
+import { delay } from '@lib/async'
 import { getUserFromCookie } from '@lib/auth'
 import { prisma } from '@lib/db'
 import { Task, TASK_STATUS } from '@prisma/client'
@@ -32,6 +33,8 @@ type Props = {
   tasks?: Task[]
 }
 const TasksCard = async ({ title, tasks }: Props) => {
+  await delay(7000)
+
   const data = tasks ?? (await getData())
 
   return (

@@ -37,6 +37,7 @@ export const Route = {
   Logout: '/logout',
   Register: '/register',
   Profile: '/profile',
+  Project: (id: string) => `/project/${id}`,
   Settings: '/settings',
   SignIn: '/signin',
   Static: '/static',

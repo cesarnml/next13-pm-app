@@ -42,7 +42,7 @@ async function main() {
       prisma.task.createMany({
         data: new Array(faker.datatype.number({ min: minTasks, max: maxTasks })).fill(null).map((_, i) => {
           return {
-            name: `${faker.hacker.phrase()} ${faker.datatype.uuid()}`,
+            name: faker.hacker.phrase(),
             ownerId: user.id,
             projectId: project.id,
             description: faker.finance.transactionDescription(),

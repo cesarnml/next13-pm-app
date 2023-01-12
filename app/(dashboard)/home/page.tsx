@@ -1,10 +1,11 @@
 import Greeting from '@components/Greeting'
 import GreetingShimmer from '@components/GreetingShimmer'
-import ProjectCard, { ProjectWithTasks } from '@components/ProjectCard'
+import ProjectCard from '@components/ProjectCard'
+import TaskCard from '@components/TaskCard'
 import { delay } from '@lib/async'
 import { getUserFromCookie } from '@lib/auth'
+import { Route } from '@lib/constants'
 import { prisma } from '@lib/db'
-import { Project } from '@prisma/client'
 import { ReadonlyRequestCookies } from 'next/dist/server/app-render'
 import { cookies } from 'next/headers'
 import Link from 'next/link'
@@ -44,15 +45,20 @@ export default async function Page() {
         <div className='flex flex-wrap items-center mt-3 -m-3 flex-2 grow '>
           {projects.map((project) => (
             <div className='w-1/3 p-3' key={project.id}>
-              <Link href={`/project/${project.id}`}>
+              <Link href={Route.Project(project.id)}>
                 <ProjectCard project={project} />
               </Link>
             </div>
-          ))}{' '}
+          ))}
           <div className='w-1/3 p-3'>{/* new project here */}</div>
         </div>
-        <div className='flex w-full mt-6 flex-2 grow'>
-          <div className='w-full'>{/* tasks here */}</div>
+        <div className='flex w-full my-6 flex-2 grow'>
+          <div className='w-full'>
+            <Suspense fallback={<div>Loading...</div>}>
+              {/* @ts-expect-error Server Component*/}
+              <TaskCard title='Tasks' />
+            </Suspense>
+          </div>
         </div>
       </div>
     </div>

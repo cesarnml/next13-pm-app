@@ -9,30 +9,30 @@ import Card from './Card'
 const getData = async () => {
   const user = await getUserFromCookie(cookies() as ReadonlyRequestCookies)
   if (user) {
-      const tasks = await prisma.task.findMany({
-        where: {
-          ownerId: user.id,
-          NOT: {
-            status: TASK_STATUS.COMPLETED,
-            deleted: false,
-          },
+    const tasks = await prisma.task.findMany({
+      where: {
+        ownerId: user.id,
+        NOT: {
+          status: TASK_STATUS.COMPLETED,
+          deleted: false,
         },
-        take: 5,
-        orderBy: {
-          due: 'asc',
-        },
-      })
-    
-      return tasks
+      },
+      take: 5,
+      orderBy: {
+        due: 'asc',
+      },
+    })
+
+    return tasks
   }
 }
 
 type Props = {
-    title: string
-    tasks: Task[]
+  title: string
+  tasks?: Task[]
 }
 const TasksCard = async ({ title, tasks }: Props) => {
-  const data = tasks || (await getData())
+  const data = tasks ?? (await getData())
 
   return (
     <Card>

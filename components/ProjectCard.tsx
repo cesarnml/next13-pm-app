@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client'
+import { Prisma, TASK_STATUS } from '@prisma/client'
 import Card from './Card'
 import clsx from 'clsx'
 
@@ -21,7 +21,7 @@ type Props = {
 }
 
 const ProjectCard = ({ project }: Props) => {
-  const completedCount = project.tasks.filter((t) => t.status === 'COMPLETED').length
+  const completedCount = project.tasks.filter((t) => t.status === TASK_STATUS.COMPLETED).length
   const progress = Math.ceil((completedCount / project.tasks.length) * 100)
 
   return (

@@ -13,7 +13,7 @@ export default async function Page() {
       <div className=' h-full  items-stretch justify-center min-h-[content]'>
         <div className='flex flex-1 grow'>
           <Suspense fallback={<GreetingShimmer />}>
-            {/* FIXME: Fix async Component error  */}
+            {/* @ts-expect-error Server Component*/}
             <Greeting />
           </Suspense>
         </div>

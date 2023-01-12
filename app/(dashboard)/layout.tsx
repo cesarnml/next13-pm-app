@@ -1,3 +1,5 @@
+import Sidebar from '@components/Sidebar'
+
 type Props = {
   children: React.ReactNode
 }
@@ -5,7 +7,10 @@ type Props = {
 const DashboardRootLayout = ({ children }: Props) => {
   return (
     <>
-      <main className='w-full pl-6 h-full'>{children}</main>
+      <main className='w-full h-full pl-6'>
+        <Sidebar />
+        {children}
+      </main>
     </>
   )
 }

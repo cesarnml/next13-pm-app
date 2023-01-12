@@ -20,7 +20,9 @@ export default function RootLayout({ children }: Props) {
       */}
       <head />
       <body className='w-screen h-screen p-6 candy-mesh'>
-        <GlassPane className='flex items-center justify-center w-full h-full'>{children}</GlassPane>
+        <GlassPane className='flex items-center justify-center w-full h-full py-6 overflow-y-auto'>
+          {children}
+        </GlassPane>
       </body>
     </html>
   )

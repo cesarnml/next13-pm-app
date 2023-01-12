@@ -38,14 +38,14 @@ const ProjectCard = ({ project }: Props) => {
         </span>
       </div>
       <div>
-        <div className='w-full h-2 bg-violet-200 rounded-full mb-2'>
+        <div className='w-full h-2 mb-2 rounded-full bg-violet-200'>
           <div
             className={clsx('h-full text-center text-xs text-white bg-violet-600 rounded-full')}
             style={{ width: `${progress}%` }}
           ></div>
         </div>
         <div className='text-right'>
-          <span className='text-sm text-gray-600 font-semibold'>{progress}%</span>
+          <span className='text-sm font-semibold text-gray-600'>{progress}%</span>
         </div>
       </div>
     </Card>

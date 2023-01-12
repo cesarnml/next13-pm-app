@@ -36,7 +36,7 @@ const TasksCard = async ({ title, tasks }: Props) => {
 
   return (
     <Card>
-      <div className='flex justify-between items-center'>
+      <div className='flex items-center justify-between'>
         <div>
           <span className='text-3xl text-gray-600'>{title}</span>
         </div>
@@ -55,7 +55,7 @@ const TasksCard = async ({ title, tasks }: Props) => {
                   <span className='text-gray-800'>{task.name}</span>
                 </div>
                 <div>
-                  <span className='text-gray-400 text-sm'>{task.description}</span>
+                  <span className='text-sm text-gray-400'>{task.description}</span>
                 </div>
               </div>
             ))}

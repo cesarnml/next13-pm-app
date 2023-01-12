@@ -33,8 +33,8 @@ export default async function Page() {
   if (!projects) return <div>{null}</div>
 
   return (
-    <div className='h-full pr-6 w-1/1'>
-      <div className=' h-full  items-stretch justify-center min-h-[content]'>
+    <div className='w-full h-full pl-6 pr-6 overflow-y-auto'>
+      <div className=' h-full items-stretch justify-center min-h-[content]'>
         <div className='flex flex-1 grow'>
           <Suspense fallback={<GreetingShimmer />}>
             {/* @ts-expect-error Server Component*/}

@@ -7,7 +7,7 @@ type Props = {
 const DashboardRootLayout = ({ children }: Props) => {
   return (
     <>
-      <main className='w-full h-full pl-6 flex gap-8'>
+      <main className='flex w-full h-full pl-6'>
         <Sidebar />
         {children}
       </main>

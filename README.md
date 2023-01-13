@@ -7,6 +7,7 @@
     - [Lesson 02 Notes](#lesson-02-notes)
     - [Lesson 03 Notes](#lesson-03-notes)
     - [Lesson 04 Notes](#lesson-04-notes)
+    - [Lesson 09](#lesson-09)
 
 ## Lessons
 
@@ -17,8 +18,8 @@
 - [x] ~~_Lesson 05 - Incorporate AuthForm in register and signin pages_~~ [2023-01-11]
 - [x] ~~_Lesson 06 - Add several auth helpers (jwt.sign, jwt.verify, etc), declare register and signin api routes_~~ [2023-01-11]
 - [x] ~~_Lesson 07 - Scaffold home page, setup Async Server Component (Greeting) and wire up Suspense to provide loading state for it_~~ [2023-01-12]
-- [ ] Lesson 08
-- [ ] Lesson 09
+- [x] ~~_Lesson 08 - Scaffold ProjectCard and Task Card_~~ [2023-01-13]
+- [x] ~~_Lesson 09 - Create CreateProject and CreateTask button, go over cache invalidation via `router.refresh()` and deploy_~~ [2023-01-13]
 
 ## Notes
 
@@ -49,3 +50,7 @@ export const FakeEnum = {
 
 export type FakeEnumType =  typeof FakeEnum[keyof typeof FakeEnum]
 ```
+
+### Lesson 09
+
+- `router.refresh()` current approach to invalidate Server Page Component cache

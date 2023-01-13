@@ -12,7 +12,7 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 
 const getData = async () => {
-  await delay(2000)
+  await delay(1000)
   const user = await getUserFromCookie(cookies() as ReadonlyRequestCookies)
   if (user) {
     const projects = await prisma.project.findMany({

@@ -33,7 +33,7 @@ type Props = {
   tasks?: Task[]
 }
 const TasksCard = async ({ title, tasks }: Props) => {
-  await delay(7000)
+  await delay(2500)
 
   const data = tasks ?? (await getData())
 

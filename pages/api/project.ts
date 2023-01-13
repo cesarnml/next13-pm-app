@@ -4,6 +4,7 @@ import { prisma } from '@lib/db'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const jwt = req.cookies[process.env.COOKIE_NAME]
+  console.log('jwt:', jwt)
   if (jwt) {
     const user = await validateJWT(jwt)
     await prisma.project.create({

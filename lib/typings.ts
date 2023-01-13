@@ -1,4 +1,4 @@
-import { Method, Route, Url } from './constants'
+import { HttpMethod, Route, Url } from './constants'
 
 export type LinkType = {
   label: string
@@ -8,7 +8,7 @@ export type LinkType = {
 
 export type Links = LinkType[]
 
-export type MethodType = typeof Method[keyof typeof Method]
+export type MethodType = typeof HttpMethod[keyof typeof HttpMethod]
 
 export type UrlType = typeof Url[keyof typeof Url]
 

@@ -4,8 +4,8 @@ import { prisma } from '@lib/db'
 import { Task, TASK_STATUS } from '@prisma/client'
 import { ReadonlyRequestCookies } from 'next/dist/server/app-render'
 import { cookies } from 'next/headers'
-import Button from './Button'
 import Card from './Card'
+import CreateTask from './CreateTask'
 
 const getData = async () => {
   const user = await getUserFromCookie(cookies() as ReadonlyRequestCookies)
@@ -44,9 +44,7 @@ const TasksCard = async ({ title, tasks }: Props) => {
           <span className='text-3xl text-gray-600'>{title}</span>
         </div>
         <div>
-          <Button intent='text' className='text-violet-600'>
-            + Create New
-          </Button>
+          <CreateTask />
         </div>
       </div>
       <div>

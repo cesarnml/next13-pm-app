@@ -1,3 +1,4 @@
+import CreateProject from '@components/CreateProject'
 import Greeting from '@components/Greeting'
 import GreetingShimmer from '@components/GreetingShimmer'
 import ProjectCard from '@components/ProjectCard'
@@ -41,6 +42,9 @@ export default async function Page() {
             {/* @ts-expect-error Server Component*/}
             <Greeting />
           </Suspense>
+        </div>
+        <div className='flex justify-end'>
+          <CreateProject />
         </div>
         <div className='flex flex-wrap items-center mt-3 -m-3 flex-2 grow '>
           {projects.map((project) => (

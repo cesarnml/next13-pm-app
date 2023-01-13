@@ -1,12 +1,12 @@
 import { MethodType, RegisterFields, SignInFields, UrlType } from './typings'
 import { User } from '@prisma/client'
-import { Method, Url } from '@lib/constants'
+import { HttpMethod, Url } from '@lib/constants'
 
 type Params<T = {}> = {
   url: UrlType
   method: MethodType
   body: T
-  json: boolean
+  json?: boolean
 }
 
 const fetcher = async ({ url, method, body, json = true }: Params) => {
@@ -29,7 +29,7 @@ const fetcher = async ({ url, method, body, json = true }: Params) => {
 export const register = async (user: Pick<User, RegisterFields>) => {
   return fetcher({
     url: Url.Register,
-    method: Method.POST,
+    method: HttpMethod.POST,
     body: user,
     json: false,
   })
@@ -38,8 +38,16 @@ export const register = async (user: Pick<User, RegisterFields>) => {
 export const signin = async (user: Pick<User, SignInFields>) => {
   return fetcher({
     url: Url.SignIn,
-    method: Method.POST,
+    method: HttpMethod.POST,
     body: user,
     json: false,
+  })
+}
+
+export const createNewProject = (name: string) => {
+  return fetcher({
+    url: Url.CreateProject,
+    method: HttpMethod.POST,
+    body: { name },
   })
 }

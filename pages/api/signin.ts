@@ -2,10 +2,10 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { prisma } from '@lib/db'
 import { comparePasswords, createJWT } from '@lib/auth'
 import { serialize } from 'cookie'
-import { Method, Route } from '@lib/constants'
+import { HttpMethod, Route } from '@lib/constants'
 
 export default async function signin(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === Method.POST) {
+  if (req.method === HttpMethod.POST) {
     const user = await prisma.user.findUnique({
       where: {
         email: req.body.email,

@@ -15,7 +15,7 @@ export const links: Links = [
   },
 ]
 
-export const Method = {
+export const HttpMethod = {
   GET: 'GET',
   POST: 'POST',
   PUT: 'PUT',
@@ -23,6 +23,7 @@ export const Method = {
 } as const
 
 export const Url = {
+  CreateProject: '/api/project',
   Register: '/api/register',
   SignIn: '/api/signin',
   Logout: '/api/logout',

@@ -2,10 +2,10 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { prisma } from '@lib/db'
 import { createJWT, hashPassword } from '@lib/auth'
 import { serialize } from 'cookie'
-import { Method, Route } from '@lib/constants'
+import { HttpMethod, Route } from '@lib/constants'
 
 export default async function register(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === Method.POST) {
+  if (req.method === HttpMethod.POST) {
     const user = await prisma.user.create({
       data: {
         email: req.body.email,

@@ -1,5 +1,6 @@
 'use client'
 import { createNewProject } from '@lib/api'
+import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
 import Modal from 'react-modal'
 import Button from './Button'
@@ -13,9 +14,12 @@ const CreateProject = () => {
   const closeModal = () => setIsOpen(false)
   const [name, setName] = useState('')
 
+  const router = useRouter()
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     await createNewProject(name)
+    router.refresh()
     closeModal()
   }
 

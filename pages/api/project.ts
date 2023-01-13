@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         ownerId: user.id,
       },
     })
-    res.status(200).json({ data: { message: 'ok' } })
+    return res.status(200).json({ data: { message: 'ok' } })
   }
   res.status(401).end('Not authorized')
 }

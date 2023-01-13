@@ -19,8 +19,8 @@ const CreateProject = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     await createNewProject(name)
-    router.refresh()
     closeModal()
+    router.refresh()
   }
 
   return (

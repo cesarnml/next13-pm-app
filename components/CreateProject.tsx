@@ -20,7 +20,7 @@ const CreateProject = () => {
   }
 
   return (
-    <div className='flex items-center justify-center px-6 py-8 transition-all duration-200 ease-in-out hover:scale-105'>
+    <div className='flex items-center justify-center transition-all duration-200 ease-in-out hover:scale-105'>
       <Button onClick={openModal}>+ New Project</Button>
 
       <Modal

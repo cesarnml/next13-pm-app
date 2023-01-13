@@ -1,9 +1,9 @@
-import { delay } from '@lib/async'
 import { getUserFromCookie } from '@lib/auth'
 import { ReadonlyRequestCookies } from 'next/dist/server/app-render'
 import { cookies } from 'next/headers'
-import Button from './Button'
 import Card from './Card'
+import CreateProject from './CreateProject'
+import GoHome from './GoHome'
 
 const getData = async () => {
   const user = await getUserFromCookie(cookies() as ReadonlyRequestCookies)
@@ -21,8 +21,9 @@ const Greetings = async () => {
         <h1 className='mb-4 text-3xl font-bold text-gray-700'>Hello, {user.firstName}!</h1>
         <h4 className='text-xl text-gray-400'>Check your daily tasks and schedule</h4>
       </div>
-      <div>
-        <Button size='large'>Today&apos;s Schedule</Button>
+      <div className='flex justify-between'>
+        <GoHome />
+        <CreateProject />
       </div>
     </Card>
   )

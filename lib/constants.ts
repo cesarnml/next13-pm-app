@@ -1,20 +1,5 @@
 import { Links } from './typings'
 
-export const links: Links = [
-  { label: 'Home', icon: 'Grid', href: '/home' },
-  {
-    label: 'Calendar',
-    icon: 'Calendar',
-    href: '/calendar',
-  },
-  { label: 'Profile', icon: 'User', href: '/profile' },
-  {
-    label: 'Settings',
-    icon: 'Settings',
-    href: '/settings',
-  },
-]
-
 export const HttpMethod = {
   GET: 'GET',
   POST: 'POST',
@@ -33,7 +18,6 @@ export const Route = {
   _Next: '/_next',
   Api: '/api',
   Root: '/',
-  Home: '/home',
   Calendar: '/calendar',
   Logout: '/logout',
   Register: '/register',
@@ -43,3 +27,18 @@ export const Route = {
   SignIn: '/signin',
   Static: '/static',
 } as const
+
+export const links: Links = [
+  { label: 'Home', icon: 'Grid', href: Route.Root },
+  {
+    label: 'Calendar',
+    icon: 'Calendar',
+    href: Route.Calendar,
+  },
+  { label: 'Profile', icon: 'User', href: Route.Profile },
+  {
+    label: 'Settings',
+    icon: 'Settings',
+    href: Route.Settings,
+  },
+]

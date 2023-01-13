@@ -6,7 +6,7 @@ import Button from './Button'
 
 const GoHome = () => {
   const router = useRouter()
-  return <Button onClick={() => router.push(Route.Home)}>Today&apos;s Schedule</Button>
+  return <Button onClick={() => router.push(Route.Root)}>Today&apos;s Schedule</Button>
 }
 
 export default GoHome

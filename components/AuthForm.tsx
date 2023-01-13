@@ -47,7 +47,7 @@ export default function AuthForm({ mode }: Props) {
         } else {
           await signin({ email, password })
         }
-        router.replace(Route.Home)
+        router.replace(Route.Root)
       } catch (e) {
         setError(`Could not ${mode}`)
       } finally {

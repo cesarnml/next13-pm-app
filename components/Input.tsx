@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import { HTMLInputTypeAttribute } from 'react'
 
 type Props = {
   className?: string

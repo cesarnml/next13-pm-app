@@ -19,7 +19,7 @@ export default function RootLayout({ children }: Props) {
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className='w-screen h-screen p-6 candy-mesh' id='app'>
+      <body className='w-screen h-screen p-6  candy-mesh' id='app'>
         <GlassPane className='flex items-center justify-center w-full h-full py-6'>{children}</GlassPane>
       </body>
     </html>
